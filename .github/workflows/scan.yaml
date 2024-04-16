@@ -30,7 +30,7 @@ jobs:
         npm ci
 
     - name: Run script
-      run: node scan.js ${{ matrix.type }} --product"${{ matrix.product }}" --assigner="${{ matrix.assigner }}""
+      run: node scan.js ${{ matrix.type }} --product="${{ matrix.product }}" --assigner="${{ matrix.assigner }}"
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
