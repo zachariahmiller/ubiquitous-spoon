@@ -27,7 +27,7 @@ jobs:
         npm ci
 
     - name: Run script
-      run: node your-script.js
+      run: node scan.js
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
