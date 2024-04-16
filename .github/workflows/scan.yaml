@@ -1,0 +1,36 @@
+name: Node.js CI Scan
+
+on: [push, pull_request]
+
+jobs:
+  scan:
+    name: Scan ${{ matrix.type }} ${{ matrix.product }} ${{ matrix.assigner }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      matrix:
+        product: [Gitlab, Jira, jenkins, "Jira Datacenter"]
+        assigner: [Gitlab, atlassian, ""]
+        type: [all, delta]
+
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '21'
+
+    - name: Install dependencies
+      run: |
+        npm ci
+
+    - name: Run script
+      run: node your-script.js
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: scan-results-${{ matrix.type }}-${{ matrix.product }}-${{ matrix.assigner }}-${{ github.run_id }}-${{ github.run_attempt }}
+        path: cve_details_output.json

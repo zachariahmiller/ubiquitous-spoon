@@ -1,0 +1,15 @@
+{
+  "name": "scan-cve-repo",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "devDependencies": {
+    "@octokit/rest": "^20.1.0",
+    "adm-zip": "^0.5.12",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^3.3.2",
+    "yargs": "^17.7.2"
+  }
+}
