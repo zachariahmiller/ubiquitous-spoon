@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   scan:
-    name: Scan ${{ matrix.type }} ${{ matrix.product }} ${{ matrix.assigner }}
+    name: Scan ${{ matrix.type }} CVEs for ${{ matrix.product }} Assigned by ${{ matrix.assigner }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     strategy:
